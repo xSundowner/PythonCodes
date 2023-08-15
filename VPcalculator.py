@@ -1,6 +1,3 @@
-import sys
-import os
-
 nc475,nc1200,nc2300,nc4400,nc5500,nc11500,mon,total = 0, 0, 0, 0, 0, 0, 0, 0 #Variáveis
 
 def conta_user(): #Permite a entrada de dados do usuário
@@ -43,9 +40,7 @@ def calculo_dinheiro(): #Compara o valor da variável total e adiciona à variá
 
         print('- - - - - - - - - - -')
         mon = round(mon, 2)  # Converte o resultado a apenas duas casa decimais após a virgula
-def restart(): #reinicia o código quando execultado
-    python = sys.executable
-    os.execl(python, python, * sys.argv)
+
 def pacotes():#Soma a quantidade de pacotes necessários e os adiciona em suas respectivas variáveis
     if nc11500 >= 1:
         print('-',nc11500,"pacote de 11500 VP")
@@ -61,6 +56,5 @@ def pacotes():#Soma a quantidade de pacotes necessários e os adiciona em suas r
         print('-',nc475,"pacote de 475 VP")
     else:
         print("Não é necessário comprar nenhum pacote de VP")
-        restart()
 
 conta_user() #inicia o código
