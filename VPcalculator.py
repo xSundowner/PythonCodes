@@ -1,18 +1,13 @@
 nc475,nc1200,nc2300,nc4400,nc5500,nc11500,mon,total = 0, 0, 0, 0, 0, 0, 0, 0 #Variáveis
 
 def conta_user(): #Permite a entrada de dados do usuário
+
+    global nc475, nc1200, nc2300, nc4400, nc5500, nc11500, mon, total
     print('Calculadora de Valorant Point\n- - - - - - - - - - -')
     atual = int(input("Digite quantos VP você possui atualmente:"))
     nc = int(input("- - - - - - - - - - -\nDigite quanto é o pacote ou skin que deseja em VP:"))
     total = nc - atual
 
-    calculo_dinheiro()
-    pacotes()
-    print('Você gastará um total de', mon, 'R$ e sobrará', total * -1,
-          'VP\nNão se esqueça que a melhor forma de economizar é não comprando :3')
-
-def calculo_dinheiro(): #Compara o valor da variável total e adiciona à variável mon
-    global nc475, nc1200, nc2300, nc4400, nc5500, nc11500, mon, total
     while total>=11500:
         nc11500 = nc11500 + 1
         total = total - 11500
@@ -39,22 +34,26 @@ def calculo_dinheiro(): #Compara o valor da variável total e adiciona à variá
         mon = mon + 16.90
 
         print('- - - - - - - - - - -')
+
+        if nc11500 >= 1:
+            print('-', nc11500, "pacote de 11500 VP")
+        if nc5500 >= 1:
+            print('-', nc5500, "pacote de 5500 VP")
+        if nc4400 >= 1:
+            print('-', nc4400, "pacote de 4400 VP")
+        if nc2300 >= 1:
+            print('-', nc2300, "pacote de 2300 VP")
+        if nc1200 >= 1:
+            print('-', nc1200, "pacote de 1200 VP")
+        if nc475 >= 1:
+            print('-', nc475, "pacote de 475 VP")
+        else:
+            print("Não é necessário comprar nenhum pacote de VP")
+
+        print('- - - - - - - - - - -')
         mon = round(mon, 2)  # Converte o resultado a apenas duas casa decimais após a virgula
 
-def pacotes():#Soma a quantidade de pacotes necessários e os adiciona em suas respectivas variáveis
-    if nc11500 >= 1:
-        print('-',nc11500,"pacote de 11500 VP")
-    if nc5500 >= 1:
-        print('-',nc5500,"pacote de 5500 VP")
-    if nc4400 >= 1:
-        print('-',nc4400,"pacote de 4400 VP")
-    if nc2300 >= 1:
-        print('-',nc2300,"pacote de 2300 VP")
-    if nc1200 >= 1:
-        print('-',nc1200,"pacote de 1200 VP")
-    if nc475 >= 1:
-        print('-',nc475,"pacote de 475 VP")
-    else:
-        print("Não é necessário comprar nenhum pacote de VP")
+    print('Você gastará um total de', mon, 'R$ e sobrará', total * -1,
+          'VP\nNão se esqueça que a melhor forma de economizar é não comprando :3')
 
-conta_user() #inicia o código
+conta_user()
