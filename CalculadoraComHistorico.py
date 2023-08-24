@@ -2,11 +2,11 @@ historico =[]
 valores = [0,0,0]
 operação = ''
 escolha = 1
-def conta():
+def conta(): #Parte principal do código, onde usuário colocará os dados
     valores[0] = int(input("\nDigite o primeiro valor: "))
     operação = str(input('Digite a operação que deseja fazer\n'
                          'x, -, +, : ')).lower()
-    if operação == 'x':
+    if operação == 'x': #Confere se operação selecionada pelo usuário é uma multiplicação
         valores[1] = int(input("Digite o segundo valor: "))
         valores[2] = valores[0]*valores[1]
         historico.append(f'{valores[0]} x {valores[1]} = {valores[2]}')
@@ -21,7 +21,7 @@ def conta():
         else:
             fim()
 
-    elif operação == '-':
+    elif operação == '-': #Confere se operação selecionada pelo usuário é uma subtração
         valores[1] = int(input("Digite o segundo valor: "))
         valores[2] = valores[0]-valores[1]
         historico.append(f'{valores[0]} - {valores[1]} = {valores[2]}')
@@ -36,7 +36,7 @@ def conta():
         else:
             fim()
 
-    elif operação == '+':
+    elif operação == '+': #Confere se operação selecionada pelo usuário é uma adição
         valores[1] = int(input("Digite o segundo valor: "))
         valores[2] = valores[0]+valores[1]
         historico.append(f'{valores[0]} + {valores[1]} = {valores[2]}')
@@ -51,10 +51,10 @@ def conta():
         else:
             fim()
 
-    else:
+    else: #Se operação não for válida o usuário receberá um aviso e o código reiniciará
         print('Digite um operador válido')
         conta()
-def historico_de_operações():
+def historico_de_operações(): #Função responsável por remover o excesso de operações armazenadas e os mostra para o usuário
     x=1
     print("\n- HISTÓRICO DE OPERAÇÕES (últimos 10)")
     while len(historico)>10:
